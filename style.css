@@ -1,0 +1,78 @@
+.container {
+  text-align: center;
+}
+
+h1 {
+  font-size: 4em;
+  text-transform: uppercase;
+  font-weight: 700;
+  margin: 0 0 0.5em 0;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+.voicemail-box {
+  background-color: darkgray;
+  display: inline-block;
+  width: 20em;
+  height: 20em;
+  border: 2px solid black;
+}
+
+.large {
+  font-size: 50px;
+}
+
+.display {
+  display: flex;
+  justify-content: space-around;
+  font-family: 'VT323', monospace;
+  font-size: 3em;
+  background-color: rgb(200, 248, 200);
+  border: 1px solid black;
+  margin: 1%;
+  width: 97%;
+  height: 24%;
+}
+
+.record-button {
+  color: red;
+  background-color: lightgrey;
+  border: 1px solid black;
+  margin: 1%;
+  width: 97%;
+  height: 30%;
+}
+
+.controls {
+  display: flex;
+  height: 15%;
+}
+
+.controls button {
+  background-color: lightgrey;
+  border: 1px solid black;
+  margin: 1% 2% 1% 2%;
+  width: 46%;
+  height: 90%;
+}
+
+.play {
+  color: rgb(27, 184, 27);
+}
+
+.send-button {
+  justify-content: space-around;
+  background-color: lightgrey;
+  border: 1px solid black;
+  margin: 1%;
+  width: 97%;
+  height: 24%;
+}
+
+.send-button span {
+  font-size: 3em;
+  margin-top: 0.2em;
+}

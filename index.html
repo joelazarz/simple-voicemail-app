@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel='stylesheet' href='style.css'>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <script type="text/javascript" src="script.js"></script>
+  <script src="//static.filestackapi.com/filestack-js/3.x.x/filestack.min.js" crossorigin="anonymous"></script>
+
+  <title>Simple Voicemail App</title>
+</head>
+
+<body>
+  <div class="voicemail-box">
+		<div class="display">00:15</div>
+
+		<button class="record-button">
+			<i class="large material-icons">fiber_manual_record</i>
+		</button>
+
+	<div class="controls">
+		<button class="play">
+			<i class="medium material-icons">play_arrow</i>
+		</button>
+		<button class="stop">
+			<i class="medium material-icons">stop</i>
+		</button>
+		<button class="delete">
+			<i class="medium material-icons">delete_forever</i>
+		</button>
+	</div>
+
+		<button class="send-button" on:click={logBlob}> 
+			<span>send</span>
+			<i class="large material-icons">send</i>
+		</button>
+
+	</div>
+</body>
+
+</html>
