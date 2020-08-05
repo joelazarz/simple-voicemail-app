@@ -27,8 +27,8 @@ const recordAudio = () => {
   timeCounter = 15;
   navigator.mediaDevices.getUserMedia({ audio: true })
   .then(stream => {
-    // let outgoingMessage = new Audio('outgoing.wav');
-    // outgoingMessage.play(); // plays outgoing message
+    let outgoingMessage = new Audio('outgoing.wav');
+    outgoingMessage.play(); // plays outgoing message
 
     setTimeout(() => { // 4 second delay, waits for outgoing message to play
       const mediaRecorder = new MediaRecorder(stream);
@@ -87,21 +87,28 @@ const deleteBlob = () => {
   blobName = null;
   voiceBlob = null;
   mediaRecorderTop = null;
-  timeCounter = 15;
+  displayTimer.innerText = '00:15'
 };
 
 const logBlob = () => { 
-  console.log(voiceBlob); 
+  console.table(voiceBlob); 
   console.log(blobName);
+};
+
+const token = {};
+const onRetry = (obj) => {
+  console.log(`Retrying ${obj.location} for ${obj.filename}. Attempt ${obj.attempt} of 10.`);
 };
 
 const saveBlob = () => {
   if (voiceBlob === null) { return };
 
-  client.upload(voiceBlob, { filename: blobName }) // add filename
+  client.upload(voiceBlob, { onRetry }, { filename: blobName }, token) // add filename
   .then(res => {
     console.log(res);
-    // set voiceBlob blobName mediaRecorderTop back to null
+    blobName = null;
+    voiceBlob = null;
+    mediaRecorderTop = null;
     deleteBlob();
   });
 };
@@ -115,7 +122,10 @@ stopButton.addEventListener("click", logBlob);
 const playButton = document.querySelector(".play")
 playButton.addEventListener("click", playBlob);
 
-const deleteButton = document.querySelector(".play")
+const deleteButton = document.querySelector(".delete")
 deleteButton.addEventListener("click", deleteBlob);
+
+const saveButton = document.querySelector(".send-button")
+saveButton.addEventListener("click", saveBlob);
 
 });
