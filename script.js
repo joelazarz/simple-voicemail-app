@@ -42,11 +42,7 @@ const recordAudio = () => {
 
       t = setInterval(function() { // timer 
         timeCounter--;
-        if(timeCounter >= 10) {
-          displayTimer.innerText = `00:${timeCounter}`
-        } else {
-          displayTimer.innerText = `00:0${timeCounter}`
-        }
+        timeCounter >= 10 ? displayTimer.innerText = `00:${timeCounter}` : displayTimer.innerText = `00:0${timeCounter}`
         console.log(timeCounter);
       }, 1000);
 
@@ -58,6 +54,7 @@ const recordAudio = () => {
         .filter(MediaRecorder.isTypeSupported)[0];
         const audioBlob = new Blob(recordedChunks, {type: mime});
         voiceBlob = audioBlob;
+        logBlob()
       });
 
       setTimeout(() => { // stops recording after 15 seconds
@@ -90,9 +87,10 @@ const deleteBlob = () => {
   displayTimer.innerText = '00:15'
 };
 
+/* Utility Function */ 
 const logBlob = () => { 
-  console.table(voiceBlob); 
-  console.log(blobName);
+    console.table(voiceBlob); 
+    console.log(blobName);
 };
 
 const token = {};
@@ -117,7 +115,7 @@ const recordButton = document.querySelector(".record-button")
 recordButton.addEventListener("click", recordAudio);
 
 const stopButton = document.querySelector(".stop")
-stopButton.addEventListener("click", logBlob);
+stopButton.addEventListener("click", stopRecorder);
 
 const playButton = document.querySelector(".play")
 playButton.addEventListener("click", playBlob);
