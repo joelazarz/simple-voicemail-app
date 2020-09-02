@@ -81,6 +81,7 @@ const playBlob = () => {
 };
 
 const deleteBlob = () => {
+  stopRecorder();
   blobName = null;
   voiceBlob = null;
   mediaRecorderTop = null;
