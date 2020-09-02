@@ -25,7 +25,7 @@ const recordAudio = () => {
   if (voiceBlob !== null) { voiceBlob = null };
 
   timeCounter = 15;
-  navigator.mediaDevices.getUserMedia({ audio: true })
+  navigator.mediaDevices.getUserMedia({ audio: true, video: false })
   .then(stream => {
     let outgoingMessage = new Audio('outgoing.wav');
     outgoingMessage.play(); // plays outgoing message
